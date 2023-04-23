@@ -8,15 +8,16 @@
     <title>Algoritmos</title>
 
     <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="icon" type="image/png" href="./assets/img/icon.png"/>
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
         <a class="navbar-brand" href="index.html">
-            <img src="./algoritmo.png" width="30" height="30" class="d-inline-block align-top" alt="">
+            <img src="./assets/img/algoritmo.png" width="30" height="30" class="d-inline-block align-top" alt="">
             Algoritmos de Busca
         </a>
 
@@ -37,7 +38,7 @@
                 </li>
                 <li class="nav-item">
                     <a href="https://github.com/WellingtonFerreira018/Sistema-de-navegacao-automatica" class="nav-link">
-                        <img src="github (1).png" alt="github">
+                        <img src="./assets/img/github (1).png" alt="github">
                     </a>
                 </li>
             </ul>
@@ -47,151 +48,309 @@
     <div class="container-fluid px-4 py-5" id="featured-3">
         <h2 class="pb-2 border-bottom">Algoritmos utilizados</h2>
         <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
-            <div class="feature col box">
+            <div class="feature col-lg-4 col-12 box">
                 <div class="feature-icon d-inline-flex align-items-center justify-content-center bg-gradient fs-2 mb-3">
-                    <img src="algoritmo.png" alt="aa">
+                    <img src="./assets/img/algoritmo.png" alt="aa">
                 </div>
                 <h3 class="fs-2">Busca em Largura</h3>
-                <p>Nullam id libero at dolor ullamcorper finibus. Etiam et varius urna, a venenatis nisl. Suspendisse
-                    fringilla luctus felis vitae consectetur. Ut volutpat imperdiet ipsum, id euismod risus lacinia
-                    eget. Aenean ornare quis nulla quis sagittis. Nam blandit pretium lacus non tincidunt.</p>
+                <p>A Busca em Largura (também conhecida como Breadth-First Search, em inglês) é um algoritmo utilizado
+                    em ciência da computação para percorrer e explorar grafos e árvores. Esse algoritmo começa pelo nó
+                    raiz e explora todos os nós vizinhos antes de se mover para o próximo nível.</p>
                 <a href="#busca-largura" class="icon-link">
                     Ver mais
-                    <svg class="bi">
-                        <use xlink:href="#chevron-right"></use>
-                    </svg>
+                    <img src="./assets/img/arraste-para-a-direita.png" alt="seta">
                 </a>
             </div>
-            <div class="feature col box">
+            <div class="feature col-12 col-lg-4 box">
                 <div
                     class="feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-2 mb-3">
-                    <img src="algoritmo.png" alt="aa">
+                    <img src="./assets/img/algoritmo.png" alt="aa">
                 </div>
                 <h3 class="fs-2">Busca em Profundidade</h3>
-                <p>Curabitur egestas lectus non justo pretium malesuada. Nulla condimentum felis ac facilisis feugiat.
-                    Aenean quis tincidunt quam. Quisque faucibus vitae ipsum eu faucibus. Praesent laoreet, orci eget
-                    aliquet sollicitudin, ligula augue porttitor purus, vel pellentesque mauris sapien id tellus.</p>
+                <p>A Busca em Profundidade (também conhecida como Depth-First Search, em inglês) é um algoritmo
+                    utilizado em ciência da computação para percorrer e explorar grafos e árvores. Esse algoritmo começa
+                    pelo nó raiz e explora um caminho até o nó mais profundo possível antes de retroceder e explorar
+                    outros caminhos.</p>
                 <a href="#busca-profundidade" class="icon-link">
                     Ver mais
-                    <svg class="bi">
-                        <use xlink:href="#chevron-right"></use>
-                    </svg>
+                    <img src="./assets/img/arraste-para-a-direita.png" alt="seta">
                 </a>
             </div>
             <div class="feature col box">
                 <div
                     class="feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-2 mb-3">
-                    <img src="algoritmo.png" alt="aa">
+                    <img src="./assets/img/algoritmo.png" alt="aa">
                 </div>
                 <h3 class="fs-2">Busca Gulosa</h3>
-                <p>Donec quis purus tempor, bibendum augue ac, fermentum libero. Ut orci nulla, feugiat nec orci et,
-                    venenatis pharetra est. Praesent aliquet euismod fermentum. Quisque venenatis vitae velit sed
-                    dapibus.</p>
+                <p>A Busca Gulosa (também conhecida como Greedy Search, em inglês) é um algoritmo utilizado em ciência
+                    da computação para resolver problemas de otimização. Esse algoritmo escolhe a melhor opção
+                    localmente em cada etapa, sem considerar as consequências a longo prazo.</p>
                 <a href="#busca-gulosa" class="icon-link">
                     Ver mais
-                    <svg class="bi">
-                        <use xlink:href="#chevron-right"></use>
-                    </svg>
+                    <img src="./assets/img/arraste-para-a-direita.png" alt="seta">
                 </a>
             </div>
-            <div class="feature col box">
+            <div class="feature col col-12 box">
                 <div
                     class="feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-2 mb-3">
-                    <img src="algoritmo.png" alt="aa">
+                    <img src="./assets/img/algoritmo.png" alt="aa">
                 </div>
                 <h3 class="fs-2">Busca A*</h3>
-                <p>Vivamus sodales dictum ipsum, nec ornare tortor pharetra eu. Lorem ipsum dolor sit amet, consectetur
-                    adipiscing elit. Fusce rhoncus eros eu ipsum tincidunt, vel pellentesque orci commodo. In pulvinar
-                    sit amet odio sit amet malesuada. Vestibulum at pulvinar diam, ut tempor metus.</p>
+                <p>A Busca A* (também conhecida como A-star Search, em inglês) é um algoritmo utilizado em ciência da
+                    computação para encontrar o caminho mais curto entre dois pontos em um grafo ou árvore. Esse
+                    algoritmo é uma combinação da Busca Gulosa e da Busca em Largura, utilizando uma heurística para
+                    determinar qual caminho é mais promissor a longo prazo.</p>
                 <a href="#busca-a" class="icon-link">
                     Ver mais
-                    <img src="arraste-para-a-direita.png" alt="seta">
+                    <img src="./assets/img/arraste-para-a-direita.png" alt="seta">
                 </a>
             </div>
         </div>
     </div>
 
-    <div id="busca-largura">
-        <div class="jumbotron">
-            <h1 class="display-4">Sistema de navegação automática</h1>
-            <p class="lead">Este projeto foi desenvolvido para a disciplina de Fundamentos de Sistemas Inteligentes.</p>
-            <hr class="my-4">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sapien orci, molestie quis orci in,
-                aliquet
-                egestas enim. Cras imperdiet dignissim libero ut consectetur. Nam suscipit vehicula tincidunt. Donec
-                pellentesque mauris vitae ligula elementum, vel pulvinar justo hendrerit. Duis bibendum eros eget nisl
-                euismod, ut sagittis velit tristique. Etiam vel faucibus tellus, nec laoreet nisi. Phasellus massa
-                ipsum,
-                venenatis vel lectus vel, ultricies dignissim dolor. Pellentesque habitant morbi tristique senectus et
-                netus
-                et malesuada fames ac turpis egestas. Sed pellentesque est vitae lectus molestie vulputate. Phasellus
-                volutpat vel purus ut pulvinar.</p>
-            <p class="lead">
-                <a class="btn btn-primary btn-lg" href="resultados.html" role="button">Ver os Resultados</a>
-            </p>
+    <div class="row">
+        <div class="col-lg-12">
+            <div id="busca-largura">
+                <div class="jumbotron">
+                    <h1 class="display-4">Busca em Largura</h1>
+                    <p class="lead">Um algoritmo utilizado em ciência da computação para percorrer e explorar grafos e
+                        árvores.
+                    </p>
+                    <hr class="my-4">
+                    <div class="row">
+                        <div class="col col-lg-8">
+                            <p style="line-height: normal; text-indent: 1.5em;">
+                                O processo começa pelo nó raiz, que é colocado na primeira posição de uma fila. Em
+                                seguida, o
+                                algoritmo visita cada um dos nós adjacentes ao nó raiz e os adiciona à fila. O processo
+                                é
+                                repetido para cada nó que é adicionado à fila, explorando todos os nós adjacentes a cada
+                                um
+                                deles.
+                            </p>
+
+                            <p style="line-height: normal; text-indent: 1.5em;">
+                                O algoritmo continua explorando os nós vizinhos em cada nível, visitando os nós na ordem
+                                em que
+                                foram adicionados à fila. Dessa forma, todos os nós de um nível são visitados antes de
+                                se mover
+                                para o próximo nível. Esse processo é repetido até que todos os nós do grafo ou árvore
+                                tenham
+                                sido visitados.
+                            </p>
+
+                            <p style="line-height: normal; text-indent: 1.5em;">
+                                A Busca em Largura pode ser utilizada para encontrar o caminho mais curto entre dois nós
+                                em um
+                                grafo ou árvore, uma vez que explora todos os caminhos em ordem crescente de
+                                comprimento. Além
+                                disso, ela pode ser utilizada para encontrar todos os nós que são alcançáveis a partir
+                                de um
+                                determinado nó, explorando todos os nós do grafo ou árvore.
+                            </p>
+
+                            <p style="line-height: normal; text-indent: 1.5em;">
+                                Um exemplo prático da Busca em Largura é a navegação em mapas. Imagine que você precisa
+                                encontrar o caminho mais curto entre sua casa e um restaurante em um mapa. Você pode
+                                utilizar a
+                                Busca em Largura para explorar todos os caminhos possíveis, visitando todos os
+                                quarteirões no
+                                caminho, até encontrar o caminho mais curto.
+                            </p>
+
+                            <p style="line-height: normal; text-indent: 1.5em;">
+                                Em resumo, a Busca em Largura é um algoritmo que percorre e explora grafos e árvores de
+                                forma
+                                sistemática e eficiente, visitando todos os nós em ordem crescente de distância do nó
+                                raiz. Ela
+                                pode ser utilizada para encontrar o caminho mais curto entre dois nós, encontrar todos
+                                os nós
+                                alcançáveis a partir de um nó e em muitas outras aplicações.
+                            </p>
+                        </div>
+                        <div class="col col-lg-4" style="text-align: center;">
+                            <img src="./assets/img/busca em largura.gif" alt="busca em largura" width="350px"
+                                style="border: 1px solid #000; border-radius: 10px;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row" style="margin-top: -2%;">
+        <div class="col-lg-12">
+            <div id="busca-profundidade">
+                <div class="jumbotron">
+                    <h1 class="display-4">Busca em Profundidade</h1>
+                    <p class="lead">Um algoritmo utilizado em ciência da computação para percorrer e explorar grafos e
+                        árvores.</p>
+                    <hr class="my-4">
+
+                    <div class="row">
+                        <div class="col col-lg-8">
+                            <p style="line-height: normal; text-indent: 1.5em;">
+                                O processo começa pelo nó raiz, que é visitado e marcado como visitado. Em seguida, o
+                                algoritmo visita um dos nós vizinhos do nó raiz, marcando-o como visitado e repetindo o
+                                processo a partir desse nó. Esse processo é repetido até que não haja mais nós não
+                                visitados adjacentes ao nó atual.
+                            </p>
+
+                            <p style="line-height: normal; text-indent: 1.5em;">
+                                Quando não houver mais nós adjacentes não visitados, o algoritmo retrocede para o nó
+                                anterior e repete o processo para o próximo nó não visitado. Esse processo é repetido
+                                até que todos os nós do grafo ou árvore tenham sido visitados.
+                            </p>
+
+                            <p style="line-height: normal; text-indent: 1.5em;">
+                                O algoritmo utiliza uma pilha para armazenar os nós que ainda precisam ser visitados. Os
+                                nós visitados são removidos da pilha e adicionados à lista de nós visitados. Quando um
+                                nó não visitado é encontrado, ele é adicionado à pilha e o processo de visita é
+                                repetido.
+                            </p>
+
+                            <p style="line-height: normal; text-indent: 1.5em;">
+                                A Busca em Profundidade pode ser utilizada para encontrar o caminho mais curto entre
+                                dois nós em um grafo ou árvore, embora não explore todos os caminhos possíveis. Em vez
+                                disso, ele explora um caminho até o nó mais profundo possível antes de retroceder e
+                                explorar outros caminhos.
+                            </p>
+
+                            <p style="line-height: normal; text-indent: 1.5em;">
+                                Um exemplo prático da Busca em Profundidade é a busca em um labirinto. Imagine que você
+                                precisa encontrar uma saída em um labirinto. Você pode utilizar a Busca em Profundidade
+                                para explorar um caminho até o fim antes de retroceder e tentar outro caminho.
+                            </p>
+
+                            <p style="line-height: normal; text-indent: 1.5em;">
+                                Em resumo, a Busca em Profundidade é um algoritmo que percorre e explora grafos e
+                                árvores de forma sistemática e eficiente, explorando um caminho até o nó mais profundo
+                                possível antes de retroceder e explorar outros caminhos. Ela pode ser utilizada para
+                                encontrar o caminho mais curto entre dois nós, embora não explore todos os caminhos
+                                possíveis.
+                            </p>
+
+                        </div>
+                        <div class="col col-lg-4" style="text-align: center;">
+                            <img src="./assets/img/busca em profundidade.gif" alt="busca em largura" width="350px">
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
-    <div id="busca-profundidade">
-        <div class="jumbotron">
-            <h1 class="display-4">Sistema de navegação automática</h1>
-            <p class="lead">Este projeto foi desenvolvido para a disciplina de Fundamentos de Sistemas Inteligentes.</p>
-            <hr class="my-4">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sapien orci, molestie quis orci in,
-                aliquet
-                egestas enim. Cras imperdiet dignissim libero ut consectetur. Nam suscipit vehicula tincidunt. Donec
-                pellentesque mauris vitae ligula elementum, vel pulvinar justo hendrerit. Duis bibendum eros eget nisl
-                euismod, ut sagittis velit tristique. Etiam vel faucibus tellus, nec laoreet nisi. Phasellus massa
-                ipsum,
-                venenatis vel lectus vel, ultricies dignissim dolor. Pellentesque habitant morbi tristique senectus et
-                netus
-                et malesuada fames ac turpis egestas. Sed pellentesque est vitae lectus molestie vulputate. Phasellus
-                volutpat vel purus ut pulvinar.</p>
-            <p class="lead">
-                <a class="btn btn-primary btn-lg" href="resultados.html" role="button">Ver os Resultados</a>
-            </p>
+    <div class="row" style="margin-top: -2%;">
+        <div class="col-lg-12">
+            <div id="busca-gulosa">
+                <div class="jumbotron">
+                    <h1 class="display-4">Busca Gulosa</h1>
+                    <p class="lead">Um algoritmo utilizado em ciência da computação para resolver problemas de
+                        otimização.</p>
+                    <hr class="my-4">
+                    <div class="row">
+                        <div class="col col-lg-8">
+                            <p style="line-height: normal; text-indent: 1.5em;">
+                                O processo começa com um nó inicial e uma heurística que determina qual nó é o "melhor"
+                                candidato para ser escolhido. O algoritmo então escolhe o nó com a melhor pontuação de
+                                acordo com a heurística e se move para esse nó. Esse processo é repetido até que o
+                                objetivo seja alcançado.
+                            </p>
+
+                            <p style="line-height: normal; text-indent: 1.5em;">
+                                A Busca Gulosa pode ser vista como uma busca em profundidade modificada. Em vez de
+                                explorar todos os caminhos possíveis, ela escolhe o caminho que parece mais promissor no
+                                momento. Isso significa que a Busca Gulosa pode encontrar uma solução rapidamente, mas
+                                não necessariamente a melhor solução possível.
+                            </p>
+
+                            <p style="line-height: normal; text-indent: 1.5em;">
+                                Um exemplo prático da Busca Gulosa é a navegação em um mapa. Imagine que você precisa
+                                encontrar o caminho mais curto entre sua casa e um restaurante em um mapa. Você pode
+                                utilizar a Busca Gulosa para escolher o caminho que parece mais curto a partir do seu
+                                ponto de partida, mas isso pode levar você por um caminho mais longo no final.
+                            </p>
+
+                            <p style="line-height: normal; text-indent: 1.5em;">
+                                Em resumo, a Busca Gulosa é um algoritmo que escolhe a melhor opção localmente em cada
+                                etapa, sem considerar as consequências a longo prazo. Ela pode encontrar uma solução
+                                rapidamente, mas não necessariamente a melhor solução possível. Ela é utilizada
+                                principalmente em problemas de otimização onde o tempo de execução é uma preocupação
+                                importante e a precisão da solução é menos importante.
+                            </p>
+
+                        </div>
+                        <div class="col col-lg-4" style="text-align: center;">
+                            <img src="./assets/img/busca gulosa.gif" alt="busca em largura" width="350px"
+                                style="border: 1px solid #000; border-radius: 10px;">
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
-    <div id="busca-gulosa">
-        <div class="jumbotron">
-            <h1 class="display-4">Sistema de navegação automática</h1>
-            <p class="lead">Este projeto foi desenvolvido para a disciplina de Fundamentos de Sistemas Inteligentes.</p>
-            <hr class="my-4">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sapien orci, molestie quis orci in,
-                aliquet
-                egestas enim. Cras imperdiet dignissim libero ut consectetur. Nam suscipit vehicula tincidunt. Donec
-                pellentesque mauris vitae ligula elementum, vel pulvinar justo hendrerit. Duis bibendum eros eget nisl
-                euismod, ut sagittis velit tristique. Etiam vel faucibus tellus, nec laoreet nisi. Phasellus massa
-                ipsum,
-                venenatis vel lectus vel, ultricies dignissim dolor. Pellentesque habitant morbi tristique senectus et
-                netus
-                et malesuada fames ac turpis egestas. Sed pellentesque est vitae lectus molestie vulputate. Phasellus
-                volutpat vel purus ut pulvinar.</p>
-            <p class="lead">
-                <a class="btn btn-primary btn-lg" href="resultados.html" role="button">Ver os Resultados</a>
-            </p>
-        </div>
-    </div>
+    <div class="row" style="margin-top: -2%;">
+        <div class="col-lg-12">
+            <div id="busca-a">
+                <div class="jumbotron">
+                    <h1 class="display-4">Busca A*</h1>
+                    <p class="lead">Um algoritmo utilizado em ciência da computação para encontrar o caminho mais curto
+                        entre dois pontos em um grafo ou árvore.</p>
+                    <hr class="my-4">
+                    <div class="row">
+                        <div class="col col-lg-8">
+                            <p style="line-height: normal; text-indent: 1.5em;">
+                                O processo começa pelo nó raiz e utiliza uma heurística para avaliar a distância do nó
+                                atual até o nó objetivo. Esse valor é adicionado ao custo acumulado de se chegar ao nó
+                                atual a partir do nó raiz. Essa soma é então utilizada para determinar a "pontuação" do
+                                nó atual. Os nós são adicionados a uma lista de nós abertos de acordo com sua pontuação.
+                            </p>
 
-    <div id="busca-a">
-        <div class="jumbotron">
-            <h1 class="display-4">Sistema de navegação automática</h1>
-            <p class="lead">Este projeto foi desenvolvido para a disciplina de Fundamentos de Sistemas Inteligentes.</p>
-            <hr class="my-4">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sapien orci, molestie quis orci in,
-                aliquet
-                egestas enim. Cras imperdiet dignissim libero ut consectetur. Nam suscipit vehicula tincidunt. Donec
-                pellentesque mauris vitae ligula elementum, vel pulvinar justo hendrerit. Duis bibendum eros eget nisl
-                euismod, ut sagittis velit tristique. Etiam vel faucibus tellus, nec laoreet nisi. Phasellus massa
-                ipsum,
-                venenatis vel lectus vel, ultricies dignissim dolor. Pellentesque habitant morbi tristique senectus et
-                netus
-                et malesuada fames ac turpis egestas. Sed pellentesque est vitae lectus molestie vulputate. Phasellus
-                volutpat vel purus ut pulvinar.</p>
-            <p class="lead">
-                <a class="btn btn-primary btn-lg" href="resultados.html" role="button">Ver os Resultados</a>
-            </p>
+                            <p style="line-height: normal; text-indent: 1.5em;">
+                                O algoritmo escolhe o nó com a menor pontuação da lista de nós abertos e o marca como
+                                visitado. Em seguida, ele avalia todos os nós vizinhos desse nó e calcula suas
+                                pontuações. Os nós vizinhos são adicionados à lista de nós abertos de acordo com sua
+                                pontuação.
+                            </p>
+
+                            <p style="line-height: normal; text-indent: 1.5em;">
+                                Esse processo é repetido até que o nó objetivo seja encontrado ou a lista de nós abertos
+                                esteja vazia, indicando que não há mais caminhos a serem explorados. Se o nó objetivo
+                                for encontrado, o algoritmo retorna o caminho mais curto encontrado. Se a lista de nós
+                                abertos estiver vazia, o algoritmo retorna um valor nulo, indicando que não há caminho
+                                do nó raiz para o nó objetivo.
+                            </p>
+
+                            <p style="line-height: normal; text-indent: 1.5em;">
+                                A heurística utilizada pela Busca A* é uma função que estima a distância do nó atual até
+                                o nó objetivo. Essa heurística deve ser admissível, o que significa que ela deve sempre
+                                subestimar a distância real. Isso garante que a Busca A* encontre sempre o caminho mais
+                                curto.
+                            </p>
+
+                            <p style="line-height: normal; text-indent: 1.5em;">
+                                Um exemplo prático da Busca A* é a navegação em um mapa. Imagine que você precisa
+                                encontrar o caminho mais curto entre sua casa e um restaurante em um mapa. A Busca A*
+                                utiliza uma heurística para estimar a distância real entre sua casa e o restaurante,
+                                permitindo que ela encontre o caminho mais curto.
+                            </p>
+
+                            <p style="line-height: normal; text-indent: 1.5em;">
+                                Em resumo, a Busca A* é um algoritmo que utiliza uma heurística para encontrar o caminho
+                                mais curto entre dois pontos em um grafo ou árvore. Ela é uma combinação da Busca Gulosa
+                                e da Busca em Largura, utilizando uma heurística para determinar qual caminho é mais
+                                promissor a longo prazo. Ela é utilizada principalmente em problemas de otimização onde
+                                a precisão da solução é importante e o tempo de execução é uma preocupação secundária.
+                            </p>
+
+                        </div>
+                        <div class="col col-lg-4" style="text-align: center;">
+                            <img src="./assets/img/busca a.gif" alt="busca em largura" width="350px"
+                                style="border: 1px solid #000; border-radius: 10px;">
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
