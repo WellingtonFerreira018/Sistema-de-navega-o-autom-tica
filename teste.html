@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Exemplo de desenho de grafo com D3.js</title>
+  <script src="https://d3js.org/d3.v6.min.js"></script>
+  <style>
+    .link {
+      stroke: #999;
+      stroke-opacity: 0.6;
+    }
+    
+    .node circle {
+      stroke: #fff;
+      stroke-width: 1.5px;
+    }
+    
+    .node text {
+      font-size: 12px;
+    }
+  </style>
+</head>
+<body>
+  <svg width="960" height="600"></svg>
+
+  <script>
+    // Definindo os dados do grafo
+    const nodes = [
+      {id: 'A'},
+      {id: 'B'},
+      {id: 'C'},
+      {id: 'D'},
+      {id: 'E'},
+    ];
+
+    const links = [
+      {source: 'A', target: 'B'},
+      {source: 'A', target: 'C'},
+      {source: 'B', target: 'D'},
+      {source: 'C', target: 'E'},
+    ];
+
+    // Criando a força do layout
+    const simulation = d3.forceSimulation(nodes)
+      .force('link', d3.forceLink(links).id(d => d.id))
+      .force('charge', d3.forceManyBody())
+      .force('center', d3.forceCenter(480, 300));
+
+    // Desenhando os links
+    const link = d3.select('svg')
+      .selectAll('line')
+      .data(links)
+      .enter()
+      .append('line')
+      .attr('class', 'link');
+
+    // Desenhando os nós
+    const node = d3.select('svg')
+      .selectAll('circle')
+      .data(nodes)
+      .enter()
+      .append('circle')
+      .attr('r', 10)
+      .attr('class', 'node');
+
+    // Adicionando as etiquetas dos nós
+    node.append('title')
+      .text(d => d.id);
+
+    node.append('text')
+      .text(d => d.id);
+
+    // Atualizando a posição dos elementos a cada tick da simulação
+    simulation.on('tick', () => {
+      link.attr('x1', d => d.source.x)
+        .attr('y1', d => d.source.y)
+        .attr('x2', d => d.target.x)
+        .attr('y2', d => d.target.y);
+
+      node.attr('cx', d => d.x)
+        .attr('cy', d => d.y);
+
+      node.select('text')
+        .attr('x', d => d.x + 15)
+        .attr('y', d => d.y + 5);
+    });
+  </script>
+</body>
+</html>
