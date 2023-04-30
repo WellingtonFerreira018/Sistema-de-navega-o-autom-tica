@@ -1,25 +1,24 @@
 body::-webkit-scrollbar {
     width: 12px;
-    /* width of the entire scrollbar */
 }
 
 body::-webkit-scrollbar-track {
     background: #262626;
-    /* color of the tracking area */
 }
 
 body::-webkit-scrollbar-thumb {
     background-color: #595959;
-    /* color of the scroll thumb */
     border-radius: 20px;
-    /* roundness of the scroll thumb */
     border: 3px solid #262626;
-    /* creates padding around scroll thumb */
 }
 
 html {
     overflow-x: hidden;
 }
+.bg-index{
+    background-color: #e9ecef;
+}
+
 
 .box {
     transition: box-shadow .3s;
@@ -38,6 +37,28 @@ html {
     box-shadow: 0 0 11px rgba(33, 33, 33, .2);
 }
 
+.button-game{
+    width: 100%;
+}
+
+.button-solucao{
+    width: 100%;
+    padding-bottom: 5%;
+}
+
+.text-algoritmo{
+    text-align: center;
+    padding-bottom: 5%;
+}
+.form-check{
+    padding-bottom: 3%;
+    font-size: 18px;
+}
+.instrucoes{
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+}
 .quadrado {
     width: 65px;
     height: 65px;
@@ -48,7 +69,6 @@ html {
     display: flex;
     align-items: center;
     justify-content: center;
-
 }
 
 #tabuleiro {

@@ -1,28 +1,44 @@
+let cols = 8; 
+let rows = 8; 
+let grid = new Array(cols); 
+let openSet = [];
+let closedSet = []; 
+let start; 
+let end; 
+let path = [];
+let matriz = [];
+
 //TERRENOS
 const plano = {
     custo: 1,
-    cor: './plano.png',
+    cor: 'assets/img/plano.png',
     heuristica: null,
 };
 const rochoso = {
     custo: 10,
-    cor: './rochas.png',
+    cor: 'assets/img/rochas.png',
     heuristica: null,
 };
 const arenoso = {
     custo: 4,
-    cor: './deserto.png',
+    cor: 'assets/img/deserto.png',
     heuristica: null,
 }
 const pantano = {
     custo: 20,
-    cor: './crocodilo.png',
+    cor: 'assets/img/crocodilo.png',
     heuristica: null,
 };
 const recompensa = {
     custo: -20,
-    cor: './recompensa.png'
+    cor: 'assets/img/recompensa.png'
 }
+
+const parede = {
+    custo: 99999,
+    cor: 'assets/img/parede.png'
+}
+
 let nodeFinal = {
     x: 7,
     y: 7
@@ -46,30 +62,22 @@ function heuristic(nodeA, nodeFinal) {
     return euclideanDistance;
 }
 
-let cols = 8; //columns in the grid
-let rows = 8; //rows in the grid
+function init() {
+    start = grid[getRandomInt(0, 8)][getRandomInt(0, 8)];
+    end = grid[getRandomInt(0, 8)][getRandomInt(0, 8)];
 
-let grid = new Array(cols); //array of all the grid points
+    openSet.push(start);
+}
 
-let openSet = []; //array containing unevaluated grid points
-let closedSet = []; //array containing completely evaluated grid points
-
-let start; //starting grid point
-let end; // ending grid point (goal)
-let path = [];
-
-
-//constructor function to create all the grid points as objects containind the data for the points
 function GridPoint(x, y, custo) {
-    this.x = x; //x location of the grid point
-    this.y = y; //y location of the grid point
-    this.f = 0; //total cost function
-    this.g = custo; //cost function from start to the current grid point
-    this.h = 0; //heuristic estimated cost function from current grid point to the goal
-    this.neighbors = []; // neighbors of the current grid point
-    this.parent = undefined; // immediate source of the current grid point
+    this.x = x; 
+    this.y = y;
+    this.f = 0; 
+    this.g = custo; 
+    this.h = 0; 
+    this.neighbors = [];
+    this.parent = undefined; 
 
-    // update neighbors array for a given grid point
     this.updateNeighbors = function (grid) {
         let i = this.x;
         let j = this.y;
@@ -88,19 +96,10 @@ function GridPoint(x, y, custo) {
     };
 }
 
-//initializing the grid
-function init() {
-    start = grid[0][0];
-    end = grid[7][3];
-
-    openSet.push(start);
-}
-
-//A star search implementation
 function aEstrela() {
-    init();
+  
     while (openSet.length > 0) {
-        //assumption lowest index is the first one to begin with
+    
         let lowestIndex = 0;
         for (let i = 0; i < openSet.length; i++) {
             if (openSet[i].f < openSet[lowestIndex].f) {
@@ -116,14 +115,11 @@ function aEstrela() {
                 path.push(temp.parent);
                 temp = temp.parent;
             }
-            console.log("DONE!");
-            // return the traced path
+
             return path.reverse();
         }
 
-        //remove current from openSet
         openSet.splice(lowestIndex, 1);
-        //add current to closedSet
         closedSet.push(current);
 
         let neighbors = current.neighbors;
@@ -140,22 +136,19 @@ function aEstrela() {
                     continue;
                 }
 
-                //neighbor.g = possibleG;
                 neighbor.h = heuristic(neighbor, end);
                 neighbor.f = neighbor.g + neighbor.h;
                 neighbor.parent = current;
             }
         }
     }
-
-    //no solution by default
     return [];
 }
 
 function gulosa() {
-    init();
+
     while (openSet.length > 0) {
-        //assumption lowest index is the first one to begin with
+
         let lowestIndex = 0;
         for (let i = 0; i < openSet.length; i++) {
             if (openSet[i].f < openSet[lowestIndex].f) {
@@ -171,14 +164,11 @@ function gulosa() {
                 path.push(temp.parent);
                 temp = temp.parent;
             }
-            console.log("DONE!");
-            // return the traced path
             return path.reverse();
         }
 
-        //remove current from openSet
+   
         openSet.splice(lowestIndex, 1);
-        //add current to closedSet
         closedSet.push(current);
 
         let neighbors = current.neighbors;
@@ -200,8 +190,6 @@ function gulosa() {
             }
         }
     }
-
-    //no solution by default
     return [];
 }
 
@@ -241,7 +229,41 @@ function bfs(start, end, grid) {
     return null;
 }
 
+function dfs(start, end, grid) {
+    let visited = {};
+    visited[start] = true;
 
+    let cameFrom = {};
+
+    function visit(cell) {
+        if (cell === end) return true;
+
+        let neighbors = getNeighborsDfs(cell, grid);
+        for (let i = 0; i < neighbors.length; i++) {
+            let neighbor = neighbors[i];
+            if (!visited[neighbor]) {
+                visited[neighbor] = true;
+                cameFrom[neighbor] = cell;
+                if (visit(neighbor)) return true;
+            }
+        }
+
+        return false;
+    }
+
+    if (visit(start)) {
+        let path = [end];
+        while (cameFrom[path[0]] !== start) {
+            path.unshift(cameFrom[path[0]]);
+        }
+        path.unshift(start);
+        return path;
+    }
+
+    return null;
+}
+
+// Busca em largura
 // função para obter os vizinhos livres de uma célula na grid
 function getNeighbors(cell, grid) {
     let [x, y] = cell.split(',').map(Number);
@@ -255,12 +277,101 @@ function getNeighbors(cell, grid) {
     return neighbors;
 }
 
+//Busca em profundidade
+function getNeighborsDfs(cell, grid) {
+    const [x, y] = cell.split(",").map(Number);
+    const offsets = [[0, -1], [0, 1], [-1, 0], [1, 0]];
+    const neighbors = [];
 
+    for (const offset of offsets) {
+        const neighborX = x + offset[0];
+        const neighborY = y + offset[1];
+
+        if (
+            neighborX >= 0 &&
+            neighborX < grid.length &&
+            neighborY >= 0 &&
+            neighborY < grid[0].length &&
+            grid[neighborX][neighborY] !== null
+        ) {
+            neighbors.push(`${neighborX},${neighborY}`);
+        }
+    }
+
+    return neighbors;
+}
+
+function algoritmo() {
+
+    let checkbox = document.querySelector('input[name=exampleRadios]:checked').value;
+    console.log(checkbox);
+    let inicio = `${start.x},${start.y}`;
+    let final = `${end.x},${end.y}`;
+
+    switch (checkbox) {
+        case 'largura':
+            let pathBFS = bfs(inicio, final, matriz);
+
+            for (let w = 0; w < pathBFS.length; w++) {
+                let i = pathBFS[w].split(",");
+                console.log(i)
+                if (document.querySelector(`#i${i[0]}j${i[1]}`)) {
+                    console.log('entrou')
+                    document.getElementById(`i${i[0]}j${i[1]}`).style.backgroundColor = "rgba(1,1,1,0.5)";
+                }
+            }
+            break;
+
+        case 'profundidade':
+            let pathDFS = dfs(inicio, final, matriz);
+
+            for (let w = 0; w < pathDFS.length; w++) {
+                let i = pathDFS[w].split(",");
+                console.log(i)
+                if (document.querySelector(`#i${i[0]}j${i[1]}`)) {
+                    console.log('entrou')
+                    document.getElementById(`i${i[0]}j${i[1]}`).style.backgroundColor = "rgba(1,1,1,0.5)";
+                }
+            }
+            break;
+
+        case 'gulosa':
+            let resultadoG = gulosa();
+
+            for (let a = 0; a < closedSet.length; a++) {
+                if (document.querySelector(`#i${closedSet[a].x}j${closedSet[a].y}`)) {
+                    document.getElementById(`i${closedSet[a].x}j${closedSet[a].y}`).style.backgroundColor = "rgba(42, 1, 43,0.5)";
+                }
+            }
+            for (let a = 0; a < resultadoG.length; a++) {
+                if (document.querySelector(`#i${resultadoG[a].x}j${resultadoG[a].y}`)) {
+                    document.getElementById(`i${resultadoG[a].x}j${resultadoG[a].y}`).style.backgroundColor = "rgba(1,1,1,0.5)";
+                }
+            }
+            break;
+
+        case 'buscaA':
+            let resultado = aEstrela();
+
+            for (let a = 0; a < closedSet.length; a++) {
+                if (document.querySelector(`#i${closedSet[a].x}j${closedSet[a].y}`)) {
+                    document.getElementById(`i${closedSet[a].x}j${closedSet[a].y}`).style.backgroundColor = "rgba(42, 133, 43,0.8)";
+                }
+            }
+            for (let a = 0; a < resultado.length; a++) {
+                if (document.querySelector(`#i${resultado[a].x}j${resultado[a].y}`)) {
+                    document.getElementById(`i${resultado[a].x}j${resultado[a].y}`).style.backgroundColor = "rgba(1,1,1,0.8)";
+                }
+            }
+            break;
+    }
+
+    return null;
+}
 (
     () => {
         const tabuleiroDOM = document.querySelector('#tabuleiro');
-        let terrenos = [plano, rochoso, arenoso, pantano, recompensa];
-        let matriz = [];
+        let terrenos = [plano, rochoso, arenoso, pantano, parede];
 
         for (let i = 0; i < cols; i++) {
             grid[i] = new Array(rows);
@@ -275,56 +386,36 @@ function getNeighbors(cell, grid) {
                 quadrado.setAttribute('class', 'quadrado');
                 tabuleiroDOM.appendChild(quadrado);
 
-                num = getRandomInt(0, 4);
+                num = getRandomInt(0, 5);
                 quadrado.style.fontSize = '15px';
                 quadrado.style.color = 'black';
                 let url = terrenos[num].cor;
-                //quadrado.style.backgroundImage = "url('" + url + "')";
-                nodeA.x = i;
-                nodeA.y = j;
-
-                //let heuristica = heuristic(nodeA, nodeFinal);
-
+                quadrado.style.backgroundImage = "url('" + url + "')";
                 matriz[i][j] = terrenos[num].custo;
-                //console.log(`${i}X${j} =` + terrenos[num].heuristica);
-                //quadrado.innerHTML = `${i}X${j}`;
-                //quadrado.innerHTML = `H:${heuristica.toFixed(2)}`;
-
                 grid[i][j] = new GridPoint(i, j, terrenos[num].custo);
             }
         }
-
-        console.log(matriz);
-        let inicio = '0,0';
-        let final = '3,3';
-
-        let path = bfs(inicio, final, grid);
-        console.log(path);
-        console.log(visited);
-
+        init();
         for (let i = 0; i < cols; i++) {
             for (let j = 0; j < rows; j++) {
                 grid[i][j].updateNeighbors(grid);
             }
         }
-        //console.log(matriz);
-        let resultado = aEstrela();
-        for (let a = 0; a < closedSet.length; a++) {
-            //console.log(`X:${closedSet[a].x} Y:${closedSet[a].y}`);
 
-            if (document.querySelector(`#i${closedSet[a].x}j${closedSet[a].y}`)) {
-                document.getElementById(`i${closedSet[a].x}j${closedSet[a].y}`).style.backgroundColor = "rgba(42, 133, 43,0.5)";
-            }
+        // recompensas
+        for (let i = 0; i < 5; i++) {
+            let x = getRandomInt(0, 7);
+            let y = getRandomInt(0, 7);
+            document.getElementById(`i${x}j${y}`).style.backgroundImage = "url('assets/img/recompensa.gif')";
         }
 
-        for (let a = 0; a < resultado.length; a++) {
-            //console.log(`X:${resultado[a].x} Y:${resultado[a].y}`);
-
-            if (document.querySelector(`#i${resultado[a].x}j${resultado[a].y}`)) {
-                document.getElementById(`i${resultado[a].x}j${resultado[a].y}`).style.backgroundColor = "rgba(1,1,1,0.5)";
-            }
+        //gif no inicio
+        if (document.querySelector(`#i${start.x}j${start.y}`)) {
+            document.getElementById(`i${start.x}j${start.y}`).style.backgroundImage = "url('assets/img/inicio.gif')";
         }
-
+        // final
+        if (document.querySelector(`#i${end.x}j${end.y}`)) {
+            document.getElementById(`i${end.x}j${end.y}`).style.backgroundImage = "url('assets/img/localizacao.png')";
+        }
     }
 )();
-
