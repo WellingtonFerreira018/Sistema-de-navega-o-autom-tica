@@ -8,7 +8,7 @@
     <title>Resultado dos Algoritmos</title>
 
     <link rel="stylesheet" href="./assets/css/style.css">
-    <link rel="icon" type="image/png" href="./assets/img/icon.png"/>
+    <link rel="icon" type="image/png" href="./assets/img/icon.png" />
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -45,44 +45,152 @@
             </ul>
         </div>
     </nav>
-
-    <h1>Resultados</h1>
+    <div class="container-fluid px-4 py-5" id="featured-3">
+        <h1 class="pb-2 border-bottom">Resultados</h1>
+    </div>
 
     <div class="container">
-        <div class="row">
-            <div class="col-8">
-
+        <div class="row" style="padding-bottom: 5%;">
+            <div class="col-lg-8 col-sm-12">
+                
                 <div id="tabuleiro">
 
                 </div>
             </div>
 
-            <div class="col-4">
+            <div class="col-lg-4 col-sm-12">
+
                 <div class="row">
                     <div class="col-12">
+                        <h4 class="text-algoritmo">Escolha o algoritmo para solucionar o preblema de rota:</h4>
+                    </div>
+
+                    <div class="col-12">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="exampleRadios" id="largura"
+                                value="largura">
+                            <label class="form-check-label" for="exampleRadios1">
+                                Busca em Largura
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="exampleRadios" id="profundidade"
+                                value="profundidade">
+                            <label class="form-check-label" for="exampleRadios2">
+                                Busca em Profundidade
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="exampleRadios" id="gulosa"
+                                value="gulosa">
+                            <label class="form-check-label" for="exampleRadios3">
+                                Busca Gulosa
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="exampleRadios" id="buscaa"
+                                value="buscaA">
+                            <label class="form-check-label" for="exampleRadios4">
+                                Busca A*
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12 col-lg-12">
+                        <button class="btn btn-primary mb-2 button-solucao" onClick=algoritmo()><b>Solução</b></button>
+                    </div>
+                </div>
+                <hr>
+                <div class="row" style="padding-bottom: 5%;">
+                    <div class="col-12">
                         <form>
-                            <div class="form-row align-items-center">
-                              <div class="col-auto">
-                                <label class="sr-only" for="inlineFormInputGroup">Cordenada X</label>
-                                <div class="input-group mb-2">
-                                  <div class="input-group-prepend">
-                                    <div class="input-group-text">X</div>
-                                  </div>
-                                  <input type="text" id="cdx" class="form-control" id="inlineFormInputGroup" placeholder="Cordenada X">
-                                </div>
-                                <label class="sr-only" for="inlineFormInputGroup">Cordenada Y</label>
-                                <div class="input-group mb-2">
-                                  <div class="input-group-prepend">
-                                    <div class="input-group-text">Y</div>
-                                  </div>
-                                  <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Cordenada Y">
-                                </div>
-                              </div>
-                              <div class="col-auto">
-                                <button type="submit" class="btn btn-primary mb-2" onClick=start()>Submit</button>
-                              </div>
+                            <button type='submit' class="btn btn-primary button-game">
+                                <img src="assets/img/replay.png">
+                                Gerar um novo mapa
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12">
+                        <div class="instrucoes">
+                            <div class="">
+                                <b>Terrenos</b>
+                                <hr>
                             </div>
-                          </form>
+                            <div class="row">
+                                <div class="col-4">
+                                    <img src="assets/img/plano.png" width="30px" height="30px" />
+                                </div>
+                                <div class="col-8">
+                                    <b>Plano:</b> Custo 1
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-4">
+                                    <img src="assets/img/rochas.png" width="30px" height="30px" />
+                                </div>
+                                <div class="col-8">
+                                    <b>Rochoso:</b> Custo 10
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-4">
+                                    <img src="assets/img/deserto.png" width="30px" height="30px" />
+                                </div>
+                                <div class="col-8">
+                                    <b>Arenoso:</b> Custo 4
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-4">
+                                    <img src="assets/img/crocodilo.png" width="30px" height="30px" />
+                                </div>
+                                <div class="col-8">
+                                    <b>Pantano:</b> Custo 20
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-4">
+                                    <img src="assets/img/parede.png" width="30px" height="30px" />
+                                </div>
+                                <div class="col-8">
+                                    <b>Paredes:</b> Impassavel
+                                </div>
+                            </div>
+                            <div class="">
+                                <hr>
+                                <b>Informações</b>
+                                <hr>
+                            </div>
+                            <div class="row">
+                                <div class="col-4">
+                                    <img src="assets/img/inicio.gif" width="30px" height="30px" />
+                                </div>
+                                <div class="col-8">
+                                    <b>Inicio</b>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-4">
+                                    <img src="assets/img/localizacao.png" width="30px" height="30px" />
+                                </div>
+                                <div class="col-8">
+                                    <b>Chegada</b>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-4">
+                                    <img src="assets/img/recompensa.gif" width="30px" height="30px" />
+                                </div>
+                                <div class="col-8">
+                                    <b>Recompensa</b>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

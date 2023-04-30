@@ -5,15 +5,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projeto Thiago</title>
+    <title>Sistema de navegação automática</title>
     <link rel="stylesheet" href="./assets/css/style.css">
-    <link rel="icon" type="image/png" href="./assets/img/icon.png"/>
+    <link rel="icon" type="image/png" href="./assets/img/icon.png" />
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 
-<body>
+<body class="bg-index">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand" href="/">
             <img src="./assets/img/algoritmo.png" width="30" height="30" class="d-inline-block align-top" alt="">
@@ -47,13 +47,36 @@
         <h1 class="display-4">Sistema de navegação automática</h1>
         <p class="lead">Este projeto foi desenvolvido para a disciplina de Fundamentos de Sistemas Inteligentes.</p>
         <hr class="my-4">
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sapien orci, molestie quis orci in, aliquet
-            egestas enim. Cras imperdiet dignissim libero ut consectetur. Nam suscipit vehicula tincidunt. Donec
-            pellentesque mauris vitae ligula elementum, vel pulvinar justo hendrerit. Duis bibendum eros eget nisl
-            euismod, ut sagittis velit tristique. Etiam vel faucibus tellus, nec laoreet nisi. Phasellus massa ipsum,
-            venenatis vel lectus vel, ultricies dignissim dolor. Pellentesque habitant morbi tristique senectus et netus
-            et malesuada fames ac turpis egestas. Sed pellentesque est vitae lectus molestie vulputate. Phasellus
-            volutpat vel purus ut pulvinar.</p>
+        <p>
+            O trabalho consiste em implementar um sistema de navegação automática de um agente
+            utilizando o algoritmo de busca em largura, profundidade, gulosa e A*.
+        </p>
+        <p>
+            O agente deve ser capaz de calcular automaticamente a melhor rota para chegar a
+            qualquer ponto de um ambiente representado através de um grafo que conecta com seus
+            vértices as áreas, locais ou partes do caminho onde o agente pode navegar.
+        </p>
+        <p>
+            O ambiente por onde o agente irá navegar é formado por diversos tipos de terrenos e em
+            cada tipo de terreno o agente tem um grau de dificuldade diferente para andar. Por
+            exemplo, o agente consegue passar facilmente por um terreno solido e plano, porem terá
+            dificuldade para andar em um terreno rochoso ou um pântano.
+
+        </p>
+
+        <p>
+            Os tipos de terrenos que compõem o ambiente são:
+        </p>
+        <ul>
+            <li>Solido e plano – Custo: +1</li>
+            <li>Rochoso – Custo: +10</li>
+            <li>Arenosos– Custo: +4</li>
+            <li>Pântano – Custo: +20</li>
+        </ul>
+        <p>
+            A melhor rota para chegar a um determinado ponto do ambiente é a rota que tem o menor
+            custo.
+        </p>
         <p class="lead">
             <a class="btn btn-primary btn-lg" href="resultados.html" role="button">Ver os Resultados</a>
         </p>
